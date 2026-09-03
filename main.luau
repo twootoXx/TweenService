@@ -10,8 +10,8 @@ local noClipConnection: RBXScriptConnection? = nil
 local tweening = false
 local speed = 20
 
-function TweenService.SetSpeed(speed: number)
-    speed = speed
+function TweenService.SetSpeed(newSpeed: number)
+    speed = newSpeed
 end
 
 
