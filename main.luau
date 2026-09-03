@@ -8,6 +8,11 @@ local runService: RunService = game:GetService("RunService")
 local noClipConnection: RBXScriptConnection? = nil
 
 local tweening = false
+local speed = 20
+
+function TweenService.SetSpeed(speed: number)
+    speed = speed
+end
 
 
 function TweenService.AwaitTween()
@@ -116,7 +121,6 @@ local function MoveToLocation(position: Vector3, root: BasePart): nil
             local toTarget: Vector3 = targetPosition - currentPos
             local distance: number = toTarget.Magnitude
 
-            local speed: number = 50
             local stopDistance: number = 0.1
 
             if distance <= stopDistance then
