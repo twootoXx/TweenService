@@ -116,7 +116,7 @@ local function MoveToLocation(position: Vector3, root: BasePart): nil
             local toTarget: Vector3 = targetPosition - currentPos
             local distance: number = toTarget.Magnitude
 
-            local speed: number = 300
+            local speed: number = 50
             local stopDistance: number = 0.1
 
             if distance <= stopDistance then
@@ -140,7 +140,7 @@ local function MoveToLocation(position: Vector3, root: BasePart): nil
     return
 end
 
-function TweenService.TweenPlayer(location): nil
+function TweenService.TweenPlayer(location: Vector3): nil
     print(string.format("[TweenService] Starting tween to position %s", tostring(location)))
 
     -- If currently tweening, wait for it to finish first
