@@ -118,7 +118,7 @@ local function MoveToLocation(position: Vector3, root: BasePart): nil
 
     task.spawn(function()
         while tweening do
-            print("In loop tweening")
+
             if not runningstate then 
                 warn("[TweenService] runningstate false")
                 tweening = false
