@@ -9,9 +9,14 @@ local noClipConnection: RBXScriptConnection? = nil
 
 local tweening = false
 local speed = 20
+local runningstate = true
 
 function TweenService.SetSpeed(newSpeed: number)
     speed = newSpeed
+end
+
+function TweenService.ChangeRunningState(state: boolean)
+    runningstate = state
 end
 
 
@@ -104,6 +109,12 @@ local function MoveToLocation(position: Vector3, root: BasePart): nil
 
     task.spawn(function()
         while tweening do
+
+            if not runningstate then 
+                warn("[TweenService] runningstate false")
+                tweening = false
+                break
+            end
 
             if not root or not root.Parent then
                 warn("[TweenService] HumanoidRootPart or its parent was destroyed during tween; stopping tween")
