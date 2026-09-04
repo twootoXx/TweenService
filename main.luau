@@ -21,15 +21,15 @@ end
 
 
 function TweenService.AwaitTween()
-    -- local localPlayer: Player = game:GetService("Players").LocalPlayer
+    local localPlayer: Player = game:GetService("Players").LocalPlayer
     while tweening do
-        -- local char: Model? = localPlayer.Character :: Model?
+        local char: Model? = localPlayer.Character :: Model?
 
-        -- if not char or char:FindFirstChild("HumanoidRootPart") then
-        --     warn("[TweenService] While awaiting tween char or root has been destroyed")
-        --     tweening = false 
-        --     return 
-        -- end
+        if not char or not char:FindFirstChild("HumanoidRootPart") then
+            warn("[TweenService] While awaiting tween char or root has been destroyed")
+            tweening = false 
+            return 
+        end
 
         task.wait()
     end
@@ -118,7 +118,7 @@ local function MoveToLocation(position: Vector3, root: BasePart): nil
 
     task.spawn(function()
         while tweening do
-
+            print("In loop tweening")
             if not runningstate then 
                 warn("[TweenService] runningstate false")
                 tweening = false
