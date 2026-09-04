@@ -121,7 +121,7 @@ local function MoveToLocation(position: Vector3, root: BasePart): nil
             local toTarget: Vector3 = targetPosition - currentPos
             local distance: number = toTarget.Magnitude
 
-            local stopDistance: number = 0.1
+            local stopDistance: number = 1
 
             if distance <= stopDistance then
                 linearVelocity.VectorVelocity = Vector3.new(0, 0, 0)
