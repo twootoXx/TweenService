@@ -22,15 +22,15 @@ end
 
 function TweenService.AwaitTween()
     local localPlayer: Player = game:GetService("Players").LocalPlayer
-    local char: Model = localPlayer.Character or localPlayer.CharacterAdded:Wait()
-    local root: BasePart? = char:FindFirstChild("HumanoidRootPart") :: BasePart?
-
     while tweening do
-        if not char or root then 
+        local char: Model? = localPlayer.Character :: Model?
+
+        if not char or char:FindFirstChild("HumanoidRootPart") then
+            warn("[TweenService] While awaiting tween char or root has been destroyed")
             tweening = false 
             return 
         end
-        
+
         task.wait()
     end
 end
